@@ -32,7 +32,7 @@ namespace Service
             return res;
         }
 
-        public TRes Delete(int id)
+        public virtual TRes Delete(int id)
         {
             var req = _dbSet.Find(id);
             _dbSet.Remove(req);

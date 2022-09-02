@@ -32,14 +32,25 @@ namespace testWebApi.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public Role CreateRole(Role role) 
+        public Role CreateRole(RoleDTO role) 
         {
-            var dto = _mapper.Map<Role, RoleDTO>(role);
-            var res = _roleService.Create(dto);
+            //var dto = _mapper.Map<Role, RoleDTO>(role);
+            //var res = _roleService.Create(dto);
 
-            var result = _mapper.Map<RoleDTO, Role>(res);
-            return result;
+            //var result = _mapper.Map<RoleDTO, Role>(res);
+            //return dto;
+          //  var dto = _mapper.Map<RoleDTO, Role>(role);
+            var dto= _roleService.Create(role);
+            var res = _mapper.Map<RoleDTO, Role>(dto);
+            return res;
+
         }
-
+        [HttpDelete]
+        public Role DeleteRole(int id)
+        {
+            var dto = _roleService.Delete(id);
+            var res = _mapper.Map<RoleDTO, Role>(dto);
+            return res;
+        }
     }
 }

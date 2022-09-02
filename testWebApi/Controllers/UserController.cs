@@ -57,5 +57,12 @@ namespace testWebApi.Controllers
             var res = _mapper.Map<UserDTO, User>(ent);
             return res;
         }
+        [HttpDelete]
+        public User DeleteUser(int id) 
+        {
+            var dto = _userService.Delete(id);
+            var res = _mapper.Map<UserDTO, User>(dto);
+            return res;
+        }
     }
 }
